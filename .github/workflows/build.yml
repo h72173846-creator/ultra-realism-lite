@@ -1,0 +1,21 @@
+name: Build
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Pack
+        run: |
+          zip -r ULTRA_REALISM_LITE.mcaddon ULTRA_REALISM_LITE_BP $(ls -d ULTRA_REALISM_LITE_RP 2>/dev/null)
+      - name: Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release delete latest --yes --cleanup-tag || true
+          gh release create latest ULTRA_REALISM_LITE.mcaddon --title "latest" --notes "auto build"
