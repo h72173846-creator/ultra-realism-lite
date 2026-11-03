@@ -1,0 +1,22 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "ULTRA REALISM LITE BP",
+    "description": "Realism survival systems",
+    "uuid": "5b0a3c1e-7d24-4f8a-9c11-2e6f4a8b1d01",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "9d2f6a47-3c80-4b15-a7e2-1f5c8d9e0b02",
+      "version": [1, 0, 0],
+      "entry": "scripts/main.js"
+    }
+  ],
+  "dependencies": [
+    { "module_name": "@minecraft/server", "version": "1.16.0" }
+  ]
+}
